@@ -2,8 +2,12 @@ FROM python:3.8
 
 WORKDIR /random-app
 
+ADD requirements.txt .
+
+RUN pip install -r requirements.txt
+
 ADD app.py .
 
-RUN pip install flask 
+EXPOSE 5000
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
